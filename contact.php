@@ -30,35 +30,35 @@
       <tr>
         <th>お名前</th>
         <td>
-          <input type="text" name="name" size="40">
+          <input type="text" id="name" name="name" size="40">
         </td>
       </tr>
 
       <tr>
         <th>会社名</th>
         <td>
-          <input type="text" name="companyName" size="40">
+          <input type="text" id="companyName" name="companyName" size="40">
         </td>
       </tr>
 
       <tr>
         <th>メールアドレス</th>
         <td>
-          <input type="text" name="email" size="40">
+          <input type="email" id="email" name="email" size="40">
         </td>
       </tr>
 
       <tr>
         <th>年齢</th>
         <td>
-          <input type="text" name="age" size="40">
+          <input type="text" id="age" name="age" size="40">
         </td>
       </tr>
 
       <tr>
         <th>お問い合わせ内容</th>
         <td>
-          <textarea name="message" cols="40" rows="5"></textarea>
+          <textarea id="message" name="message"></textarea>
         </td>
 
       </tr>
@@ -69,8 +69,11 @@
   </form>
 
   <footer>
+    <p>横のボタンを押すとfooterの背景色がかわります。</p>
     <button>押してみてね！</button>
   </footer>
 </body>
+
+<script src="style.js"></script>
 
 </html>
