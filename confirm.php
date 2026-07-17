@@ -1,3 +1,27 @@
+<?php
+
+// POST以外ならcontact.phpへ戻す
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+
+  header("Location: contact.php");
+  exit;
+}
+
+// 入力漏れチェック
+if (
+  empty($_POST['name']) ||
+  empty($_POST['companyName']) ||
+  empty($_POST['email']) ||
+  empty($_POST['age']) ||
+  empty($_POST['message'])
+) {
+
+  echo "必須項目が未入力です。入力内容をご確認ください。";
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -30,45 +54,45 @@
       <tr>
         <th>お名前</th>
         <td>
-          <?php echo $_POST['name']; ?>
+          <?php echo htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8'); ?>
         </td>
       </tr>
 
       <tr>
         <th>会社名</th>
         <td>
-          <?php echo $_POST['companyName']; ?>
+          <?php echo htmlspecialchars($_POST['companyName'], ENT_QUOTES, 'UTF-8'); ?>
         </td>
       </tr>
 
       <tr>
         <th>メールアドレス</th>
         <td>
-          <?php echo $_POST['email']; ?>
+          <?php echo htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'); ?>
         </td>
       </tr>
 
       <tr>
         <th>年齢</th>
         <td>
-          <?php echo $_POST['age']; ?>
+          <?php echo htmlspecialchars($_POST['age'], ENT_QUOTES, 'UTF-8'); ?>
         </td>
       </tr>
 
       <tr>
         <th>お問い合わせ内容</th>
         <td>
-          <?php echo $_POST['message']; ?>
+          <?php echo htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8'); ?>
         </td>
 
       </tr>
     </table>
 
-    <input type="hidden" name="name" value="<?php echo $_POST['name']; ?>">
-    <input type="hidden" name="companyName" value="<?php echo $_POST['companyName']; ?>">
-    <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
-    <input type="hidden" name="age" value="<?php echo $_POST['age']; ?>">
-    <input type="hidden" name="message" value="<?php echo $_POST['message']; ?>">
+    <input type="hidden" name="name" value="<?php echo htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input type="hidden" name="companyName" value="<?php echo htmlspecialchars($_POST['companyName'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input type="hidden" name="email" value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input type="hidden" name="age" value="<?php echo htmlspecialchars($_POST['age'], ENT_QUOTES, 'UTF-8'); ?>">
+    <input type="hidden" name="message" value="<?php echo htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8'); ?>">
 
     <input type="submit" value="送信">
     <input type="button" value="戻る" onclick="history.back()">
